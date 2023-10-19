@@ -6,7 +6,7 @@ plugins {
     `java-library`
 }
 
-rootProject.group = "me.corecraft.StaffPlus"
+rootProject.group = "me.corecraft.staffplus"
 rootProject.description = "A staff plugin."
 rootProject.version = "0.1"
 
@@ -21,7 +21,7 @@ dependencies {
     implementation("com.ryderbelserion.cluster", "cluster-paper", "2.1")
 
     // https://github.com/AuthMe/ConfigMe
-    implementation("ch.jalu", "configme", "1.4.1")
+    compileOnly("ch.jalu", "configme", "1.4.1")
 
     paperweight.paperDevBundle("1.20.2-R0.1-SNAPSHOT")
 }

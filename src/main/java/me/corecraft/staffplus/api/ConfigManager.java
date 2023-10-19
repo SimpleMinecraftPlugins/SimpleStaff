@@ -2,6 +2,7 @@ package me.corecraft.staffplus.api;
 
 import ch.jalu.configme.SettingsManager;
 import ch.jalu.configme.SettingsManagerBuilder;
+import ch.jalu.configme.resource.YamlFileResourceOptions;
 import me.corecraft.staffplus.StaffPlus;
 import me.corecraft.staffplus.config.Config;
 import me.corecraft.staffplus.config.Messages;
@@ -19,14 +20,16 @@ public class ConfigManager {
     private SettingsManager messages;
 
     public void load() {
+        YamlFileResourceOptions builder = YamlFileResourceOptions.builder().indentationSize(2).build();
+
         this.config = SettingsManagerBuilder
-                .withYamlFile(new File(this.dataFolder, "config.yml"))
+                .withYamlFile(new File(this.dataFolder, "config.yml"), builder)
                 .useDefaultMigrationService()
                 .configurationData(Config.class)
                 .create();
 
         this.messages = SettingsManagerBuilder
-                .withYamlFile(new File(this.dataFolder, "messages.yml"))
+                .withYamlFile(new File(this.dataFolder, "messages.yml"), builder)
                 .useDefaultMigrationService()
                 .configurationData(Messages.class)
                 .create();

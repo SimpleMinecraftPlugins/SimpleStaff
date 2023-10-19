@@ -3,12 +3,11 @@ package me.corecraft.staffplus.config;
 import ch.jalu.configme.Comment;
 import ch.jalu.configme.SettingsHolder;
 import ch.jalu.configme.properties.Property;
-
 import static ch.jalu.configme.properties.PropertyInitializer.newProperty;
 
 public class Config implements SettingsHolder {
 
-    protected Config() {}
+    public Config() {}
 
     @Comment("Any user who joins with the permission staffplus.join will be put into staff mode wih this enabled.")
     public static final Property<Boolean> enable_staff_on_join = newProperty("staff.enable-on-join", false);
