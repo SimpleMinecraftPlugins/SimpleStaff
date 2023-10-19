@@ -13,12 +13,12 @@ rootProject.version = "0.1"
 repositories {
     maven("https://repo.papermc.io/repository/maven-public/")
 
-    maven("https://repo.crazycrew.us/releases/")
+    maven("https://repo.crazycrew.us/snapshots/")
 }
 
 dependencies {
     // https://github.com/ryderbelserion/Cluster
-    implementation("com.ryderbelserion.cluster", "cluster-paper", "2.1")
+    compileOnly("com.ryderbelserion.cluster", "cluster-paper", "2.1-snapshot")
 
     // https://github.com/AuthMe/ConfigMe
     compileOnly("ch.jalu", "configme", "1.4.1")

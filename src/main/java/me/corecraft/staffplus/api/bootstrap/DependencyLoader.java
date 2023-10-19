@@ -14,10 +14,10 @@ public class DependencyLoader implements PluginLoader {
     public void classloader(@NotNull PluginClasspathBuilder classpathBuilder) {
         MavenLibraryResolver resolver = new MavenLibraryResolver();
 
-        //resolver.addDependency(new Dependency(new DefaultArtifact("com.ryderbelserion.cluster:cluster-paper:2.1"), null));
+        resolver.addDependency(new Dependency(new DefaultArtifact("com.ryderbelserion.cluster:cluster-paper:2.1-snapshot"), null));
         resolver.addDependency(new Dependency(new DefaultArtifact("ch.jalu:configme:1.4.1"), null));
 
-        //resolver.addRepository(new RemoteRepository.Builder("crazycrew", "default", "https://repo.crazycrew.us/snapshots/").build());
+        resolver.addRepository(new RemoteRepository.Builder("crazycrew", "default", "https://repo.crazycrew.us/snapshots/").build());
         resolver.addRepository(new RemoteRepository.Builder("paper", "default", "https://repo.papermc.io/repository/maven-public/").build());
 
         classpathBuilder.addLibrary(resolver);

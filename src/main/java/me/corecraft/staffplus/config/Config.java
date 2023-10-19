@@ -7,7 +7,7 @@ import static ch.jalu.configme.properties.PropertyInitializer.newProperty;
 
 public class Config implements SettingsHolder {
 
-    public Config() {}
+    protected Config() {}
 
     @Comment("Any user who joins with the permission staffplus.join will be put into staff mode wih this enabled.")
     public static final Property<Boolean> enable_staff_on_join = newProperty("staff.enable-on-join", false);
