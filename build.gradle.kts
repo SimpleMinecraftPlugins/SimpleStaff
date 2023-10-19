@@ -3,8 +3,6 @@ plugins {
 
     id("io.papermc.paperweight.userdev") version "1.5.7"
 
-    id("xyz.jpenilla.run-paper") version "2.1.0"
-
     `java-library`
 }
 
@@ -48,12 +46,6 @@ tasks {
 
     reobfJar {
         outputJar.set(file("$jarsDir/${rootProject.name}-${rootProject.version}.jar"))
-    }
-
-    runServer {
-        jvmArgs("-Dnet.kyori.ansi.colorLevel=truecolor")
-
-        minecraftVersion("1.20.2")
     }
 
     processResources {
