@@ -6,9 +6,9 @@ plugins {
     `java-library`
 }
 
-rootProject.group = "com.ryderbelserion.template"
-rootProject.description = "A plugin template."
-rootProject.version = "0.2"
+rootProject.group = "me.corecraft.StaffPlus"
+rootProject.description = "A staff plugin."
+rootProject.version = "0.1"
 
 repositories {
     maven("https://repo.papermc.io/repository/maven-public/")
@@ -18,10 +18,10 @@ repositories {
 
 dependencies {
     // https://github.com/ryderbelserion/Cluster
-    // implementation("com.ryderbelserion.cluster", "cluster-bukkit", "1.5")
+    implementation("com.ryderbelserion.cluster", "cluster-paper", "2.1")
 
     // https://github.com/AuthMe/ConfigMe
-    // implementation("ch.jalu", "configme", "1.4.1")
+    implementation("ch.jalu", "configme", "1.4.1")
 
     paperweight.paperDevBundle("1.20.2-R0.1-SNAPSHOT")
 }
