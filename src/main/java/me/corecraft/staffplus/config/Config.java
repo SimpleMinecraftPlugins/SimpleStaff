@@ -32,8 +32,9 @@ public class Config implements SettingsHolder {
     )).setDisplayName("<blue>Freeze Wand <gray>(Right click)"));
 
     @Comment("What should the teleport wand look like and do?")
-    public static final Property<ItemType> teleport_wand = newBeanProperty(ItemType.class, "staff.items.teleport-wand", new ItemType());
+    public static final Property<String> teleport_wand = newProperty("staff.items.teleport-wand", "");
 
     @Comment("What should the player wand look like and do?")
-    public static final Property<ItemType> player_wand = newBeanProperty(ItemType.class, "staff.items.player-wand", new ItemType());
+    public static final Property<String> player_wand = newProperty("staff.items.player-wand", "");
+
 }
