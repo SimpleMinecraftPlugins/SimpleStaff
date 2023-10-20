@@ -10,19 +10,14 @@ import org.bukkit.command.CommandSender;
 
 public class ArgumentRelations extends MessageHandler {
 
-    private final BukkitCommandManager<CommandSender> bukkitCommandManager;
-    private final PaperPlugin paperPlugin;
 
     public ArgumentRelations(BukkitCommandManager<CommandSender> bukkitCommandManager, PaperPlugin paperPlugin) {
         super(bukkitCommandManager, paperPlugin);
-
-        this.bukkitCommandManager = bukkitCommandManager;
-        this.paperPlugin = paperPlugin;
     }
 
     @Override
     public void build() {
-        this.bukkitCommandManager.registerMessage(MessageKey.NOT_ENOUGH_ARGUMENTS, (sender, context) -> {
+        getBukkitCommandManager().registerMessage(MessageKey.NOT_ENOUGH_ARGUMENTS, (sender, context) -> {
             String command = context.getCommand();
 
             String correctUsage = null;
@@ -34,7 +29,7 @@ public class ArgumentRelations extends MessageHandler {
             }
         });
 
-        this.bukkitCommandManager.registerMessage(MessageKey.TOO_MANY_ARGUMENTS, (sender, context) -> {
+        getBukkitCommandManager().registerMessage(MessageKey.TOO_MANY_ARGUMENTS, (sender, context) -> {
             String command = context.getCommand();
 
             String correctUsage = null;
@@ -46,7 +41,7 @@ public class ArgumentRelations extends MessageHandler {
             }
         });
 
-        this.bukkitCommandManager.registerMessage(MessageKey.UNKNOWN_COMMAND, (sender, context) -> {
+        getBukkitCommandManager().registerMessage(MessageKey.UNKNOWN_COMMAND, (sender, context) -> {
             String command = context.getCommand();
             String subCommand = context.getSubCommand();
 
@@ -68,6 +63,6 @@ public class ArgumentRelations extends MessageHandler {
 
     @Override
     public Component parse(String message) {
-        return this.paperPlugin.parse(message);
+        return getPaperPlugin().parse(message);
     }
 }

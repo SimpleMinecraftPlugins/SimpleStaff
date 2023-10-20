@@ -11,24 +11,18 @@ import org.bukkit.command.CommandSender;
 
 public class MiscRelations extends MessageHandler {
 
-    private final BukkitCommandManager<CommandSender> bukkitCommandManager;
-    private final PaperPlugin paperPlugin;
-
     public MiscRelations(BukkitCommandManager<CommandSender> bukkitCommandManager, PaperPlugin paperPlugin) {
         super(bukkitCommandManager, paperPlugin);
-
-        this.bukkitCommandManager = bukkitCommandManager;
-        this.paperPlugin = paperPlugin;
     }
 
     @Override
     public void build() {
-        this.bukkitCommandManager.registerMessage(MessageKey.INVALID_ARGUMENT, (sender, context) -> send(sender, parse(Translation.invalid_arguments.getMessage("{usage}", context.getTypedArgument()).toMessage())));
+        getBukkitCommandManager().registerMessage(MessageKey.INVALID_ARGUMENT, (sender, context) -> send(sender, parse(Translation.invalid_arguments.getMessage("{usage}", context.getTypedArgument()).toMessage())));
 
-        this.bukkitCommandManager.registerMessage(BukkitMessageKey.NO_PERMISSION, (sender, context) -> send(sender, parse(Translation.no_permission.getMessage("{permission}", context.getNodes().get(0)).toMessage())));
+        getBukkitCommandManager().registerMessage(BukkitMessageKey.NO_PERMISSION, (sender, context) -> send(sender, parse(Translation.no_permission.getMessage("{permission}", context.getNodes().get(0)).toMessage())));
 
-        this.bukkitCommandManager.registerMessage(BukkitMessageKey.PLAYER_ONLY, (sender, context) -> send(sender, parse(Translation.must_be_player.toMessage())));
-        this.bukkitCommandManager.registerMessage(BukkitMessageKey.CONSOLE_ONLY, (sender, context) -> send(sender, parse(Translation.must_be_console.toMessage())));
+        getBukkitCommandManager().registerMessage(BukkitMessageKey.PLAYER_ONLY, (sender, context) -> send(sender, parse(Translation.must_be_player.toMessage())));
+        getBukkitCommandManager().registerMessage(BukkitMessageKey.CONSOLE_ONLY, (sender, context) -> send(sender, parse(Translation.must_be_console.toMessage())));
     }
 
     @Override
@@ -38,6 +32,6 @@ public class MiscRelations extends MessageHandler {
 
     @Override
     public Component parse(String message) {
-        return this.paperPlugin.parse(message);
+        return getPaperPlugin().parse(message);
     }
 }
