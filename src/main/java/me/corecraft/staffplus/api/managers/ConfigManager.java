@@ -1,4 +1,4 @@
-package me.corecraft.staffplus.api;
+package me.corecraft.staffplus.api.managers;
 
 import ch.jalu.configme.SettingsManager;
 import ch.jalu.configme.SettingsManagerBuilder;
@@ -12,8 +12,8 @@ public class ConfigManager {
 
     private final File dataFolder;
 
-    public ConfigManager(StaffPlus staffPlus) {
-        this.dataFolder = staffPlus.getDataFolder();
+    public ConfigManager(StaffPlus plugin) {
+        this.dataFolder = plugin.getDataFolder();
     }
 
     private SettingsManager config;
@@ -45,5 +45,13 @@ public class ConfigManager {
         this.config.save();
 
         this.messages.save();
+    }
+
+    public SettingsManager getConfig() {
+        return this.config;
+    }
+
+    public SettingsManager getMessages() {
+        return this.messages;
     }
 }

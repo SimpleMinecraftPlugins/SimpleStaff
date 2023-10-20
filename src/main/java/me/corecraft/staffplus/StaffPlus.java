@@ -1,36 +1,36 @@
 package me.corecraft.staffplus;
 
-import com.ryderbelserion.cluster.paper.AbstractPaperPlugin;
-import me.corecraft.staffplus.api.ConfigManager;
+import com.ryderbelserion.cluster.paper.PaperPlugin;
+import me.corecraft.staffplus.api.CrazyHandler;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class StaffPlus extends JavaPlugin {
 
-    private AbstractPaperPlugin plugin;
+    private PaperPlugin paperPlugin;
 
-    private ConfigManager configManager;
+    private CrazyHandler crazyHandler;
 
     @Override
     public void onEnable() {
-        this.plugin = new AbstractPaperPlugin(this, true);
-        this.plugin.enable();
+        this.paperPlugin = new PaperPlugin(this, true);
+        this.paperPlugin.enable();
 
-        this.configManager = new ConfigManager(this);
-        this.configManager.load();
+        this.crazyHandler = new CrazyHandler(this);
+        this.crazyHandler.load();
     }
 
     @Override
     public void onDisable() {
-        this.configManager.save();
+        this.crazyHandler.stop();
 
-        this.plugin.disable();
+        this.paperPlugin.disable();
     }
 
-    public AbstractPaperPlugin getAbstractPlugin() {
-        return this.plugin;
+    public PaperPlugin getPaperPlugin() {
+        return this.paperPlugin;
     }
 
-    public ConfigManager getConfigManager() {
-        return this.configManager;
+    public CrazyHandler getCrazyHandler() {
+        return this.crazyHandler;
     }
 }
