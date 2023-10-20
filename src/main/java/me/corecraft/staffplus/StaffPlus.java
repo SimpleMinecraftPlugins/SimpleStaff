@@ -2,6 +2,7 @@ package me.corecraft.staffplus;
 
 import com.ryderbelserion.cluster.paper.PaperPlugin;
 import me.corecraft.staffplus.api.CrazyHandler;
+import me.corecraft.staffplus.listeners.TestUtil;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class StaffPlus extends JavaPlugin {
@@ -17,6 +18,9 @@ public class StaffPlus extends JavaPlugin {
 
         this.crazyHandler = new CrazyHandler(this);
         this.crazyHandler.load();
+
+        TestUtil testUtil = new TestUtil();
+        testUtil.send(this);
     }
 
     @Override
