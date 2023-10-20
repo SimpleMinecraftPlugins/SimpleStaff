@@ -18,9 +18,6 @@ public class StaffPlus extends JavaPlugin {
 
         this.crazyHandler = new CrazyHandler(this);
         this.crazyHandler.load();
-
-        TestUtil testUtil = new TestUtil();
-        testUtil.send(this);
     }
 
     @Override
