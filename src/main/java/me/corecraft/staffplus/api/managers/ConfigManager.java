@@ -3,17 +3,23 @@ package me.corecraft.staffplus.api.managers;
 import ch.jalu.configme.SettingsManager;
 import ch.jalu.configme.SettingsManagerBuilder;
 import ch.jalu.configme.resource.YamlFileResourceOptions;
+import com.ryderbelserion.cluster.api.config.StorageManager;
 import me.corecraft.staffplus.StaffPlus;
 import me.corecraft.staffplus.config.Config;
 import me.corecraft.staffplus.config.Messages;
+import me.corecraft.staffplus.config.persist.Items;
 import java.io.File;
 
 public class ConfigManager {
 
     private final File dataFolder;
 
+    private final StorageManager storageManager;
+
     public ConfigManager(StaffPlus plugin) {
         this.dataFolder = plugin.getDataFolder();
+
+        this.storageManager = plugin.getPaperPlugin().getStorageManager();
     }
 
     private SettingsManager config;
@@ -33,16 +39,22 @@ public class ConfigManager {
                 .useDefaultMigrationService()
                 .configurationData(Messages.class)
                 .create();
+
+        this.storageManager.addFile(new Items(this.dataFolder.toPath()));
     }
 
     public void reload() {
         this.config.reload();
+
+        this.storageManager.saveFile(new Items(this.dataFolder.toPath()));
 
         this.messages.reload();
     }
 
     public void save() {
         this.config.save();
+
+        this.storageManager.saveFile(new Items(this.dataFolder.toPath()));
 
         this.messages.save();
     }

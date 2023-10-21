@@ -24,7 +24,7 @@ dependencies {
     compileOnly("org.jetbrains.kotlin","kotlin-stdlib-jdk8","1.9.10")
 
     // https://github.com/ryderbelserion/Cluster
-    compileOnly("com.ryderbelserion.cluster", "cluster-paper", "2.2")
+    implementation("com.ryderbelserion.cluster", "cluster-paper", "2.3.2")
 
     // https://github.com/Rollczi/LiteCommands/tree/master
     //compileOnly("dev.rollczi.litecommands","bukkit-adventure", "2.8.9")

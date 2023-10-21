@@ -31,20 +31,6 @@ public class StaffCommand extends BaseCommand {
     public void execute(Player player) {
         player.getInventory().clear();
 
-        /*ItemStack teleportTool = ParentBuilder.of(this.plugin).setMaterial(Material.ENDER_CHEST).setDisplayName("<dark_purple>Teleport Wand <gray>(Right click)").setDisplayLore(List.of(
-                "<gray>Opens a menu that lets you pick",
-                "<gray>a player to teleport to."
-        )).setAmount(1).build();
-
-        ItemStack profileTool = ParentBuilder.of(this.plugin).setMaterial(Material.PLAYER_HEAD).setPlayer(player.getName()).setDisplayName("<light_purple>Player Wand <gray>(Right click)").setDisplayLore(List.of(
-                "<gray>Opens a menu when you right click a",
-                "<gray>player showing information about the player."
-        )).setAmount(1).build();*/
-
-        //player.getInventory().setItem(3, freezeTool);
-        //player.getInventory().setItem(5, teleportTool);
-        //player.getInventory().setItem(7, profileTool);
-
         player.sendMessage(Translation.staff_mode_enter.toComponent());
     }
 
