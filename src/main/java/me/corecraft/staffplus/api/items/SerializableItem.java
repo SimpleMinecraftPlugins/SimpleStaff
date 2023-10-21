@@ -16,14 +16,35 @@ public class SerializableItem {
     private final ItemStack itemStack;
     private ItemBuilder itemBuilder;
     private final NbtBuilder nbtBuilder;
+    @Expose
+    private Material material;
+    @Expose
+    private String displayName;
+    @Expose
+    private List<String> displayLore;
+    @Expose
+    private int amount;
+    @Expose
+    private String skullName;
 
     public SerializableItem(Material material, String displayName, List<String> displayLore, int amount) {
+        this.material = material;
+        this.displayName = displayName;
+        this.displayLore = displayLore;
+        this.amount = amount;
+
         this.itemBuilder = ParentBuilder.of().setMaterial(material).setDisplayName(displayName).setDisplayLore(displayLore).setAmount(amount);
 
         this.nbtBuilder = new NbtBuilder(this.plugin, this.itemStack = this.itemBuilder.build());
     }
 
     public SerializableItem(Material material, String displayName, List<String> displayLore, int amount, String skullName) {
+        this.material = material;
+        this.displayName = displayName;
+        this.displayLore = displayLore;
+        this.amount = amount;
+        this.skullName = skullName;
+
         this.itemBuilder = ParentBuilder.of().setMaterial(material).setDisplayName(displayName).setDisplayLore(displayLore).setAmount(amount).setPlayer(skullName);
 
         this.nbtBuilder = new NbtBuilder(this.plugin, this.itemStack = this.itemBuilder.build());
