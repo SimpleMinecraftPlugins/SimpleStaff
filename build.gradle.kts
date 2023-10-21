@@ -38,15 +38,8 @@ dependencies {
     paperweight.paperDevBundle("1.20.2-R0.1-SNAPSHOT")
 }
 
-
 kotlin {
     jvmToolchain(17)
-
-    sourceSets.all {
-        languageSettings {
-            languageVersion = "2.0"
-        }
-    }
 }
 
 java {
