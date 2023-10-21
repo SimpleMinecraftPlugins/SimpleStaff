@@ -5,32 +5,25 @@ import dev.triumphteam.cmd.core.annotation.Command;
 import dev.triumphteam.cmd.core.annotation.Default;
 import dev.triumphteam.cmd.core.annotation.SubCommand;
 import me.corecraft.staffplus.StaffPlus;
-import me.corecraft.staffplus.api.CrazyHandler;
 import me.corecraft.staffplus.api.managers.ConfigManager;
 import me.corecraft.staffplus.config.enums.Translation;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.plugin.java.JavaPlugin;
+import org.jetbrains.annotations.NotNull;
 
 @Command("staff")
 public class StaffCommand extends BaseCommand {
 
     @NotNull
+    private final StaffPlus plugin = JavaPlugin.getPlugin(StaffPlus.class);
 
     @NotNull
-
-    public StaffCommand(StaffPlus plugin) {
-        this.plugin = plugin;
-
-        CrazyHandler crazyHandler = this.plugin.getCrazyHandler();
-
-        this.configManager = crazyHandler.getConfigManager();
-    }
+    private final ConfigManager configManager = this.plugin.getCrazyHandler().getConfigManager();
 
     @Default
     //@Permission(value = "staffplus.use", def = PermissionDefault.FALSE)
     public void execute(Player player) {
-        player.getInventory().clear();
-
         player.sendMessage(Translation.staff_mode_enter.toComponent());
     }
 

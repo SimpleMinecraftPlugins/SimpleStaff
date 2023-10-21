@@ -1,19 +1,13 @@
 package me.corecraft.staffplus.commands.handlers;
 
-import com.ryderbelserion.cluster.paper.PaperPlugin;
-import dev.triumphteam.cmd.bukkit.BukkitCommandManager;
 import dev.triumphteam.cmd.core.message.MessageKey;
 import me.corecraft.staffplus.commands.handlers.interfaces.MessageHandler;
 import me.corecraft.staffplus.config.enums.Translation;
 import net.kyori.adventure.text.Component;
 import org.bukkit.command.CommandSender;
+import org.jetbrains.annotations.NotNull;
 
 public class ArgumentRelations extends MessageHandler {
-
-
-    public ArgumentRelations(BukkitCommandManager<CommandSender> bukkitCommandManager, PaperPlugin paperPlugin) {
-        super(bukkitCommandManager, paperPlugin);
-    }
 
     @Override
     public void build() {

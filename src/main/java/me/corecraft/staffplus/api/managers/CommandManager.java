@@ -1,32 +1,27 @@
 package me.corecraft.staffplus.api.managers;
 
-import com.ryderbelserion.cluster.paper.PaperPlugin;
 import dev.triumphteam.cmd.bukkit.BukkitCommandManager;
 import me.corecraft.staffplus.StaffPlus;
 import me.corecraft.staffplus.commands.StaffCommand;
 import me.corecraft.staffplus.commands.handlers.ArgumentRelations;
 import me.corecraft.staffplus.commands.handlers.MiscRelations;
 import org.bukkit.command.CommandSender;
+import org.bukkit.plugin.java.JavaPlugin;
+import org.jetbrains.annotations.NotNull;
 
 public class CommandManager {
 
     @NotNull
+    private final StaffPlus plugin = JavaPlugin.getPlugin(StaffPlus.class);
 
     @NotNull
-    private final PaperPlugin paperPlugin;
-
-    public CommandManager(StaffPlus plugin) {
-        this.plugin = plugin;
-
-        this.bukkitCommandManager = BukkitCommandManager.create(this.plugin);
-        this.paperPlugin = this.plugin.getPaperPlugin();
-    }
+    private final BukkitCommandManager<CommandSender> bukkitCommandManager = BukkitCommandManager.create(this.plugin);
 
     public void load() {
-        this.bukkitCommandManager.registerCommand(new StaffCommand(this.plugin));
+        this.bukkitCommandManager.registerCommand(new StaffCommand());
 
-        new MiscRelations(this.bukkitCommandManager, this.paperPlugin).build();
-        new ArgumentRelations(this.bukkitCommandManager, this.paperPlugin).build();
+        new MiscRelations().build();
+        new ArgumentRelations().build();
     }
 
     @NotNull

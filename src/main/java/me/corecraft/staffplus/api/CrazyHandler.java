@@ -3,23 +3,25 @@ package me.corecraft.staffplus.api;
 import me.corecraft.staffplus.StaffPlus;
 import me.corecraft.staffplus.api.managers.CommandManager;
 import me.corecraft.staffplus.api.managers.ConfigManager;
+import org.bukkit.plugin.java.JavaPlugin;
+import org.jetbrains.annotations.NotNull;
 
 public class CrazyHandler {
 
     @NotNull
+    private final StaffPlus plugin = JavaPlugin.getPlugin(StaffPlus.class);
 
     @NotNull
-    private CommandManager commandManager;
+    private ConfigManager configManager = this.plugin.getCrazyHandler().getConfigManager();
 
     @NotNull
-        this.plugin = plugin;
-    }
+    private CommandManager commandManager = this.plugin.getCrazyHandler().getCommandManager();
 
     public void load() {
-        this.configManager = new ConfigManager(this.plugin);
+        this.configManager = new ConfigManager();
         this.configManager.load();
 
-        this.commandManager = new CommandManager(this.plugin);
+        this.commandManager = new CommandManager();
         this.commandManager.load();
     }
 

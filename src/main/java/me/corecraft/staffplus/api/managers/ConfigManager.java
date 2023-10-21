@@ -8,19 +8,20 @@ import me.corecraft.staffplus.StaffPlus;
 import me.corecraft.staffplus.config.Config;
 import me.corecraft.staffplus.config.Messages;
 import me.corecraft.staffplus.config.persist.Items;
+import org.bukkit.plugin.java.JavaPlugin;
+import org.jetbrains.annotations.NotNull;
 import java.io.File;
 
 public class ConfigManager {
 
     @NotNull
+    private final StaffPlus plugin = JavaPlugin.getPlugin(StaffPlus.class);
 
     @NotNull
+    private final File dataFolder = this.plugin.getDataFolder();
 
     @NotNull
-        this.dataFolder = plugin.getDataFolder();
-
-        this.storageManager = plugin.getPaperPlugin().getStorageManager();
-    }
+    private final StorageManager storageManager = this.plugin.getPaperPlugin().getStorageManager();
 
     private SettingsManager config;
     private SettingsManager messages;

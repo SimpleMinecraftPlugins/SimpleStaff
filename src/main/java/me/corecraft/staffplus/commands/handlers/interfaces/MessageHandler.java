@@ -2,18 +2,22 @@ package me.corecraft.staffplus.commands.handlers.interfaces;
 
 import com.ryderbelserion.cluster.paper.PaperPlugin;
 import dev.triumphteam.cmd.bukkit.BukkitCommandManager;
+import me.corecraft.staffplus.StaffPlus;
 import net.kyori.adventure.text.Component;
 import org.bukkit.command.CommandSender;
+import org.bukkit.plugin.java.JavaPlugin;
+import org.jetbrains.annotations.NotNull;
 
 public abstract class MessageHandler {
 
     @NotNull
-    private final PaperPlugin paperPlugin;
+    private final StaffPlus plugin = JavaPlugin.getPlugin(StaffPlus.class);
 
     @NotNull
-        this.bukkitCommandManager = bukkitCommandManager;
-        this.paperPlugin = paperPlugin;
+    private final BukkitCommandManager<CommandSender> bukkitCommandManager = this.plugin.getCrazyHandler().getCommandManager().getBukkitCommandManager();
+
     @NotNull
+    private final PaperPlugin paperPlugin = this.plugin.getPaperPlugin();
 
     @NotNull
     public PaperPlugin getPaperPlugin() {
@@ -27,8 +31,8 @@ public abstract class MessageHandler {
 
     public abstract void build();
 
-    public abstract void send(CommandSender sender, Component component);
+    public abstract void send(@NotNull CommandSender sender, @NotNull Component component);
 
-    public abstract Component parse(String message);
+    public abstract Component parse(@NotNull String message);
 
 }
