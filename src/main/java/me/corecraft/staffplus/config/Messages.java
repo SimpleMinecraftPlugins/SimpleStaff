@@ -4,7 +4,6 @@ import ch.jalu.configme.Comment;
 import ch.jalu.configme.SettingsHolder;
 import ch.jalu.configme.configurationdata.CommentsConfiguration;
 import ch.jalu.configme.properties.Property;
-import ch.jalu.configme.properties.PropertyInitializer;
 import org.jetbrains.annotations.NotNull;
 
 import static ch.jalu.configme.properties.PropertyInitializer.newProperty;
