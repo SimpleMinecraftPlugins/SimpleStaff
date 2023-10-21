@@ -6,6 +6,8 @@ plugins {
     id("xyz.jpenilla.run-paper") version "2.2.0"
 
     kotlin("jvm") version "1.9.10"
+
+    `java-library`
 }
 
 rootProject.group = "me.corecraft.staffplus"
