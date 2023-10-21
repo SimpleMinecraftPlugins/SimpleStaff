@@ -1,16 +1,11 @@
 .idea
 .gradle
+
 build
+
 jars
 
-buildSrc/build
-buildSrc/.gradle
+run
 
-common/build
-common/.gradle
-
-paper/build
-paper/.gradle
-
-fabric/build
-fabric/.gradle
+!run/eula.txt
+!run/server.properties
