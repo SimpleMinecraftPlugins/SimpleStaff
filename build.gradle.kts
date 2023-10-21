@@ -3,7 +3,7 @@ plugins {
 
     id("io.papermc.paperweight.userdev") version "1.5.7"
 
-    `java-library`
+    id("xyz.jpenilla.run-paper") version "2.2.0"
 
     kotlin("jvm") version "1.9.10"
 }
@@ -59,6 +59,12 @@ tasks {
             jvmTarget = "17"
             javaParameters = true
         }
+    }
+
+    runServer {
+        jvmArgs("-Dnet.kyori.ansi.colorLevel=truecolor")
+
+        minecraftVersion("1.20.2")
     }
 
     compileJava {
