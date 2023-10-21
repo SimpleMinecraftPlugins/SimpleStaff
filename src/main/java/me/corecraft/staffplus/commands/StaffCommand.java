@@ -14,9 +14,9 @@ import org.bukkit.entity.Player;
 @Command("staff")
 public class StaffCommand extends BaseCommand {
 
-    private final StaffPlus plugin;
+    @NotNull
 
-    private final ConfigManager configManager;
+    @NotNull
 
     public StaffCommand(StaffPlus plugin) {
         this.plugin = plugin;

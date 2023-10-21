@@ -33,29 +33,35 @@ public enum Translation {
         this.property = property;
     }
 
+    @NotNull
     private final StaffPlus plugin = JavaPlugin.getPlugin(StaffPlus.class);
 
+    @NotNull
     private final ConfigManager configManager = this.plugin.getCrazyHandler().getConfigManager();
 
+    @NotNull
     private final SettingsManager messages = this.configManager.getMessages();
 
     @NotNull
-    private String getProperty(Property<String> property) {
+    private String getProperty(@NotNull Property<String> property) {
         return this.messages.getProperty(property);
     }
 
+    @NotNull
     public Translation getMessage() {
         return getMessage(new HashMap<>());
     }
 
-    public Translation getMessage(String placeholder, String replacement) {
+    @NotNull
+    public Translation getMessage(@NotNull String placeholder, @NotNull String replacement) {
         HashMap<String, String> placeholders = new HashMap<>();
         placeholders.put(placeholder, replacement);
 
         return getMessage(placeholders);
     }
 
-    public Translation getMessage(HashMap<String, String> placeholder) {
+    @NotNull
+    public Translation getMessage(@NotNull HashMap<String, String> placeholder) {
         String message;
 
         message = getProperty(this.property);
@@ -71,10 +77,12 @@ public enum Translation {
         return this;
     }
 
+    @NotNull
     public String toMessage() {
         return this.message.replaceAll("\\{prefix}", getProperty(Translation.command_prefix.property));
     }
 
+    @NotNull
     public Component toComponent() {
         return this.plugin.getPaperPlugin().parse(getMessage().toMessage());
     }

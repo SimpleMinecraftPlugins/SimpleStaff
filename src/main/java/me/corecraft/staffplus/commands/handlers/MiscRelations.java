@@ -26,12 +26,12 @@ public class MiscRelations extends MessageHandler {
     }
 
     @Override
-    public void send(CommandSender sender, Component component) {
+    public void send(@NotNull CommandSender sender, @NotNull Component component) {
         sender.sendMessage(component);
     }
 
     @Override
-    public Component parse(String message) {
+    public Component parse(@NotNull String message) {
         return getPaperPlugin().parse(message);
     }
 }

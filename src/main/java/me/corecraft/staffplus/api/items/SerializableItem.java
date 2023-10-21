@@ -11,6 +11,7 @@ import java.util.List;
 
 public class SerializableItem {
 
+    @NotNull
     private final StaffPlus plugin = JavaPlugin.getPlugin(StaffPlus.class);
 
     private final ItemStack itemStack;

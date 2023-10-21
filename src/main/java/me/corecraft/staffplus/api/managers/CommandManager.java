@@ -10,9 +10,9 @@ import org.bukkit.command.CommandSender;
 
 public class CommandManager {
 
-    private final StaffPlus plugin;
+    @NotNull
 
-    private final BukkitCommandManager<CommandSender> bukkitCommandManager;
+    @NotNull
     private final PaperPlugin paperPlugin;
 
     public CommandManager(StaffPlus plugin) {
@@ -29,6 +29,7 @@ public class CommandManager {
         new ArgumentRelations(this.bukkitCommandManager, this.paperPlugin).build();
     }
 
+    @NotNull
     public BukkitCommandManager<CommandSender> getBukkitCommandManager() {
         return this.bukkitCommandManager;
     }

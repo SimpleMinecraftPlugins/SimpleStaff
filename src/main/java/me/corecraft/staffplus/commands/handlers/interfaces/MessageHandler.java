@@ -7,18 +7,20 @@ import org.bukkit.command.CommandSender;
 
 public abstract class MessageHandler {
 
-    private final BukkitCommandManager<CommandSender> bukkitCommandManager;
+    @NotNull
     private final PaperPlugin paperPlugin;
 
-    public MessageHandler(BukkitCommandManager<CommandSender> bukkitCommandManager, PaperPlugin paperPlugin) {
+    @NotNull
         this.bukkitCommandManager = bukkitCommandManager;
         this.paperPlugin = paperPlugin;
-    }
+    @NotNull
 
+    @NotNull
     public PaperPlugin getPaperPlugin() {
         return this.paperPlugin;
     }
 
+    @NotNull
     public BukkitCommandManager<CommandSender> getBukkitCommandManager() {
         return this.bukkitCommandManager;
     }

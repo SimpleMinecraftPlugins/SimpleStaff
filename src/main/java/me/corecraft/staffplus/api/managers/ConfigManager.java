@@ -12,11 +12,11 @@ import java.io.File;
 
 public class ConfigManager {
 
-    private final File dataFolder;
+    @NotNull
 
-    private final StorageManager storageManager;
+    @NotNull
 
-    public ConfigManager(StaffPlus plugin) {
+    @NotNull
         this.dataFolder = plugin.getDataFolder();
 
         this.storageManager = plugin.getPaperPlugin().getStorageManager();
@@ -59,10 +59,12 @@ public class ConfigManager {
         this.messages.save();
     }
 
+    @NotNull
     public SettingsManager getConfig() {
         return this.config;
     }
 
+    @NotNull
     public SettingsManager getMessages() {
         return this.messages;
     }

@@ -4,6 +4,7 @@ import com.ryderbelserion.cluster.paper.PaperPlugin;
 import com.ryderbelserion.cluster.paper.PaperService;
 import me.corecraft.staffplus.api.CrazyHandler;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.jetbrains.annotations.NotNull;
 
 public class StaffPlus extends JavaPlugin {
 
@@ -31,10 +32,12 @@ public class StaffPlus extends JavaPlugin {
         this.paperPlugin.disable();
     }
 
+    @NotNull
     public PaperPlugin getPaperPlugin() {
         return this.paperPlugin;
     }
 
+    @NotNull
     public CrazyHandler getCrazyHandler() {
         return this.crazyHandler;
     }

@@ -6,12 +6,12 @@ import me.corecraft.staffplus.api.managers.ConfigManager;
 
 public class CrazyHandler {
 
-    private final StaffPlus plugin;
+    @NotNull
 
-    private ConfigManager configManager;
+    @NotNull
     private CommandManager commandManager;
 
-    public CrazyHandler(StaffPlus plugin) {
+    @NotNull
         this.plugin = plugin;
     }
 
@@ -31,10 +31,12 @@ public class CrazyHandler {
         this.configManager.save();
     }
 
+    @NotNull
     public ConfigManager getConfigManager() {
         return this.configManager;
     }
 
+    @NotNull
     public CommandManager getCommandManager() {
         return this.commandManager;
     }
