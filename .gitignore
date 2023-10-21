@@ -2,10 +2,11 @@
 .gradle
 
 build
-
 jars
 
-run
+buildSrc/.gradle
+buildSrc/build
 
+run
 !run/eula.txt
 !run/server.properties
