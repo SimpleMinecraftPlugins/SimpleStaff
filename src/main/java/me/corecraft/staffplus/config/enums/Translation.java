@@ -13,7 +13,6 @@ import java.util.Map;
 
 public enum Translation {
 
-    command_prefix(Messages.command_prefix),
     no_permission(Messages.no_permission),
     config_reload(Messages.config_reload),
     must_be_player(Messages.must_be_player),
@@ -79,7 +78,7 @@ public enum Translation {
 
     @NotNull
     public String toMessage() {
-        return this.message.replaceAll("\\{prefix}", getProperty(Translation.command_prefix.property));
+        return this.message.replaceAll("\\{prefix}", this.messages.getProperty(Messages.command_prefix));
     }
 
     @NotNull
